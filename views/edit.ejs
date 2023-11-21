@@ -1,0 +1,17 @@
+<%- include ("header.ejs")%>
+
+<div class="container">
+   <h1 class="blog-head edit">
+    Edit Blog Post
+   </h1> 
+   <form action="/update" method="post">
+    <textarea type="text" name="editpost" class="edited-post"  required><%=data.postContent%></textarea>
+    <input type="hidden" name="postindex" value="<%=data.postIndex%>">
+    <div class="button-container">
+    <button id="new-post" class="btn" type="submit">Update Post</button>
+   </div>
+   </form>
+</div>
+
+
+<%- include('footer.ejs') %>

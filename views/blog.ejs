@@ -1,0 +1,38 @@
+<%- include('header.ejs') %>
+
+
+
+    <% if (locals.admin === true) { %>
+        <div class="blog-head"><h1 class="header">Admin Login</h1></div>
+        <div class="blog-post">
+         <form action="/new-post" method="post">
+            <div> <label for="newpost"><h3>Your Blog:</h3></label></div>
+            <div> <textarea type="text" placeholder="New Blog Post" name="newpost" class="newpost"></textarea></div>
+            <div> <button id="new-post" class="btn " type="submit">Create new Post</button></div>
+         </form>
+        </div>
+    <%}else{%>
+        <div class="blog-head guest"><h1 class="header">Guest Login</h1></div>
+        
+    <% }%>
+       <div class="blog-head"><h2>Recent Post's</h2></div> 
+       <% for(var i =0;i<posts.length;i++){ %>
+            <div class="grid-box">
+                <div class="Post grid-item"><h2 class="Postsheader">Post <%=i + 1 %> </h2> <%=posts [i] %>
+                    <div class="flex">                    
+                        <form action="/edit" method="get"> <%if (locals.admin ===true){%>
+                 <input type="hidden" name="postcontent" value="<%= posts [i]%>">
+                 <input type="hidden" name="postindex" value="<%=i%>">
+                    <button id="edit-post" class="btn  edit btn-outline-danger" type="submit">Edit</button>
+                </form>
+                <form action="/delete" method="post">
+                    <div> 
+                        <button class="btn  delete btn-outline-danger" type="submit">Delete</button>
+                    </form></div>
+
+             </div>
+
+               <%}%>
+            </div>
+      <% } %>        
+<%- include("footer.ejs") %>
