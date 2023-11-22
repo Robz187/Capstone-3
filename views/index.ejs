@@ -1,0 +1,17 @@
+<%- include('header.ejs') %>
+<div class="flex-center">
+ <div class="flex-login">
+<form action="/login" method="post"> 
+<div>
+   <label class="enter-data" for="uName"><b>Username</b></label>
+   <input class="enter-data" type="text" placeholder="Enter Username" name="uName" >
+</div>
+<div>
+   <label class="enter-data" for="psw"><b>Password</b></label>
+   <input class="enter-data" type="text" placeholder="Enter Password" name="psw" >
+</div>
+   <button id="new-post" class="btn" type="submit">Login</button>
+</form>
+ </div>   
+</div>
+<%- include('footer.ejs') %>
